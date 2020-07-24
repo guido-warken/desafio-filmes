@@ -1,0 +1,11 @@
+<div>
+<h2>Pesquisar pelo nome do filme</h2><br>
+    <div class="form-group">
+        <label for="search">Digite o nome do filme:</label>
+        <input type="text" [(ngModel)] = "name" id="search" (input) = "search()">
+    </div><br>
+<div class="form-group">
+<a routerLink="/detail/{{film.id}}" *ngIf="film">Ir para os detalhes do filme</a>
+<a routerLink="/list" *ngIf="!(film)">Ir para a lista de filmes, pois seu filme não foi encontrado</a>
+</div>
+</div>
