@@ -2,11 +2,21 @@
 <section>
     <h1>Detalhes do filme {{film.title}}</h1><br>
 <h2>Título: </h2><br>
-<pre class="pre-scrollable">{{film.title}}</pre><br>
+<pre class="pre-scrollable" id="film-title">{{film.title}}</pre><br>
 <h2>data de lançamento: </h2><br>
-<pre class="pre-scrollable">{{film.release_date}}</pre><br>
+<pre class="pre-scrollable" id="film-date">{{film.release_date}}</pre><br>
+<h2>Gêneros</h2><br>
+<ul class="list-group" id="film-genre-list">
+    <li class="list-group-item" *ngFor = "let genre of genres">{{genre.name}}</li>
+</ul><br>
+<h2>Título original em inglês</h2><br>
+<pre class="pre-scrollable" id="film-original-title">{{film.original_title}}</pre><br>
+<h2>Quantidade de votos</h2><br>
+<pre class="pre-scrollable" id="film-vote-count">{{film.vote_count}}</pre><br>
+<h2>Índice de popularidade</h2>
+<pre class="pre-scrollable" id="film-popularity">{{film.popularity}}</pre>
 <h2>Resumo: </h2><br>
-<pre class="pre-scrollable">{{film.overview}}</pre><br>
+<pre class="pre-scrollable" id="film-overview">{{film.overview}}</pre><br>
 <h2>Idioma original do filme: </h2><br>
 <pre class="pre-scrollable">{{film.original_language}}</pre><br>
 

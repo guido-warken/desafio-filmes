@@ -4,6 +4,7 @@ import { FilmsModule } from './films/films.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MessagesModule } from './messages/messages.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FilmsModule
+    FilmsModule,
+    MessagesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

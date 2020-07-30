@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FilmService } from '../film.service';
 import { Location } from '@angular/common';
 import { Film } from '../Film';
+import { MessageService } from 'src/app/messages/message.service';
 
 @Component({
   selector: 'app-search-film',
@@ -14,19 +15,30 @@ export class SearchFilmComponent implements OnInit {
   name = '';
   film: Film;
 
-  constructor(private _filmService: FilmService, private _location: Location) { }
+  constructor(private _filmService: FilmService, private _messageService : MessageService, private _location: Location) { }
 
   ngOnInit(): void {
+    this._messageService.add('tela de pesquisa de filmes');
+    this.clearMessages();
   }
 
   search() {
-    this._filmService.listByPopularity('41f35c2bf35bf539136f4f344dd6b922').subscribe(data => {
+    this._filmService.listByPopularity().subscribe(data => {
       const film = data.results.find(result => result.title == this.name);
       if (film) {
         this.film = film;
+this._messageService.add('Sua pesquisa encontrou o filme solicitado');
       } else {
         this.film = null;
+        this._messageService.add('Sua pesquisa não retornou nenhum filme');
       }
+      this.clearMessages();
     });
+  }
+
+  clearMessages() {
+setTimeout(() => {
+  this._messageService.clear();
+}, 3000);
   }
 }

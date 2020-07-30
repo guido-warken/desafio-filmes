@@ -1,0 +1,3 @@
+<section class="sr-only" *ngIf = "messageService.messages.length">
+    <div role="alert" *ngFor = "let msg of messageService.messages">{{msg}}</div>
+</section>

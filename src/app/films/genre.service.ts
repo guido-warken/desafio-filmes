@@ -1,19 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Film } from './Film';
+import { Genre } from './genre';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-
-export class FilmService {
+export class GenreService {
 
   constructor(private _http: HttpClient) { }
 
-  listByPopularity() {
-    const observable = this._http.get<any>(environment.listFilmsApiUrl);
-    return observable;
+  getGenres() {
+    return this._http.get<any>(environment.listGenresApiUrl);
   }
-
 }
